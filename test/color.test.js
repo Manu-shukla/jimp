@@ -1,5 +1,5 @@
-var {Jimp, donutJGD} = require("./test-helper");
-var should = require("should");
+var {Jimp, donutJGD} = require("./test-helper"),
+    should = require("should");
 
 describe("canvas color transformation", ()=> {
 
