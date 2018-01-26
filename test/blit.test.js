@@ -11,8 +11,8 @@ describe("Blit over image", ()=> {
         '▾▾▾▾◆◆◆◆',
         '▾▾▾▾◆◆◆◆',
         '▾▾▾▾◆◆◆◆'
-    );
-    var srcJGD = mkJGD(
+    ),
+     srcJGD = mkJGD(
         '□□□□□□',
         '□▥▥▥▥□',
         '□▥■■▥□',
@@ -23,8 +23,8 @@ describe("Blit over image", ()=> {
 
     var targetImg, srcImg; // stores the Jimp instances of the JGD images above.
     before((done)=> {
-        var img1 = Jimp.read(targetJGD);
-        var img2 = Jimp.read(srcJGD);
+        var img1 = Jimp.read(targetJGD),
+         img2 = Jimp.read(srcJGD);
         Promise.all([img1, img2]).then((images)=> {
             targetImg = images[0];
             srcImg = images[1];
