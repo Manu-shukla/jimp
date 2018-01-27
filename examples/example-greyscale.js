@@ -1,9 +1,10 @@
 /* eslint no-console: "off" */
 
-var Jimp = require("jimp");
+var Jimp = require("jimp"),
 
-var url = "https://upload.wikimedia.org/wikipedia/commons/0/01/Bot-Test.jpg";
-
+ url = "https://upload.wikimedia.org/wikipedia/commons/0/01/Bot-Test.jpg";
+//  for(var i=0; i<15; i++){
+//       var url=response[i].url;
 Jimp.read(url).then(function (image) {
     image.greyscale().getBuffer(Jimp.MIME_JPEG, onBuffer);
 }).catch(function (err) {
