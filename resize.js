@@ -52,20 +52,20 @@ Resize.prototype.configurePasses = function () {
             this.resizeHeight = this.resizeHeightInterpolated;
         } else {
             this.initializeSecondPassBuffers(false);
-            this.resizeHeight = (this.colorChannels === 4) ? this.resizeHeightRGBA : this.resizeHeightRGB;
+            this.resizeHeight = (this.colorChannels === 6) ? this.resizeHeightRGBA : this.resizeHeightRGB;
         }
     }
 }
 
 Resize.prototype._resizeWidthInterpolatedRGBChannels = function (buffer, fourthChannel) {
-    var channelsNum = fourthChannel ? 4 : 3;
-    var ratioWeight = this.ratioWeightWidthPass;
-    var weight = 0;
-    var finalOffset = 0;
-    var pixelOffset = 0;
-    var firstWeight = 0;
-    var secondWeight = 0;
-    var outputBuffer = this.widthBuffer;
+    var channelsNum = fourthChannel ? 4 : 3,
+     ratioWeight = this.ratioWeightWidthPass,
+     weight = 0,
+     finalOffset = 0,
+     pixelOffset = 0,
+     firstWeight = 0,
+     secondWeight = 0,
+     outputBuffer = this.widthBuffer;
     // Handle for only one interpolation input being valid for start calculation:
     for (var targetPosition = 0; weight < 1 / 3; targetPosition += channelsNum, weight += ratioWeight) {
         for (finalOffset = targetPosition, pixelOffset = 0; finalOffset < this.widthPassResultSize; pixelOffset += this.originalWidthMultipliedByChannels, finalOffset += this.targetWidthMultipliedByChannels) {
